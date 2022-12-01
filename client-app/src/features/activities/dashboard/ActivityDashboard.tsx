@@ -6,12 +6,9 @@ import ActivityDetails from '../details/ActivityDetails';
 import ActivityForm from '../form/ActivityForm';
 import ActivityList from './ActivityList';
 
-interface Props {
-    deleteActivity: (id: string) => void;
-}
 
 
-export default observer(function ActivityDashboard({ deleteActivity }: Props) {
+export default observer(function ActivityDashboard() {
 
     const { activityStore } = useStore();
     const { selectedActivity, editMode } = activityStore;
@@ -19,8 +16,7 @@ export default observer(function ActivityDashboard({ deleteActivity }: Props) {
     return (
         <Grid>
             <Grid.Column width='10'>
-                <ActivityList
-                    deleteActivity={deleteActivity} />
+                <ActivityList />
             </Grid.Column>
             <Grid.Column width='6'>
                 {selectedActivity && !editMode &&
